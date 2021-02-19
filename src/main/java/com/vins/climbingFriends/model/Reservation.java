@@ -25,6 +25,6 @@ public class Reservation implements Serializable {
     private Boolean accepter;
 
     @Enumerated(EnumType.STRING)
-    StatusReservationEnum statusReservationEnum;
+    StatusEnum status;
 
 }

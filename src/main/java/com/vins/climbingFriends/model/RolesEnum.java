@@ -1,6 +1,6 @@
 package com.vins.climbingFriends.model;
 
-public enum RoleEnum {
+public enum RolesEnum {
 
     USER,
     ADMIN
