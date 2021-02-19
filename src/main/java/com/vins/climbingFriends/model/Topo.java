@@ -9,19 +9,28 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class SiteEscalade implements Serializable {
+public class Topo implements Serializable {
 
     @Id
     @GeneratedValue
     private Long id;
 
-    private String nomDuSite;
+    private String nom;
 
-    boolean officiel;
+    private String description;
+
+    private String lieu;
+
+    private Date dateDeParution;
+
+    private Boolean disponible;
+
+
 }
