@@ -8,6 +8,7 @@ import lombok.Setter;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -25,5 +26,11 @@ public class Commentaire implements Serializable {
     private String commentaire;
 
     private Date date;
+
+    @ManyToOne
+    Grimpeur grimpeur;
+
+    @ManyToOne
+    SiteEscalade siteEscalade;
 
 }
