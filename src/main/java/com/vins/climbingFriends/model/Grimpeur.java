@@ -38,9 +38,9 @@ public class Grimpeur implements UserDetails {
     @Size(min = 4)
     String password;
 
-    @ElementCollection(targetClass = RoleEnum.class, fetch = FetchType.EAGER)
+    @ElementCollection(targetClass = RolesEnum.class, fetch = FetchType.EAGER)
     @Enumerated(EnumType.STRING)
-    private List<RoleEnum> roles;
+    private List<RolesEnum> roles;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
