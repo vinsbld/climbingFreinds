@@ -1,9 +1,6 @@
 package com.vins.climbingFriends.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -19,8 +16,8 @@ import java.util.stream.Collectors;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@RequiredArgsConstructor
+@Data
 public class Grimpeur implements UserDetails {
 
     @Id
@@ -42,7 +39,7 @@ public class Grimpeur implements UserDetails {
     @Enumerated(EnumType.STRING)
     private List<RolesEnum> roles;
 
-    @Override
+   @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         String roles = org.springframework.util.StringUtils.collectionToCommaDelimitedString(getRoles().stream()
                 .map(Enum::name).collect(Collectors.toList()));
