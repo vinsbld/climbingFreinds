@@ -35,6 +35,15 @@ public class Grimpeur implements UserDetails {
     @Size(min = 4)
     String password;
 
+    @OneToMany
+    Collection<SiteEscalade> siteEscalades;
+
+    @OneToMany
+    Collection<Topo>topos;
+
+    @OneToMany
+    List<Commentaire>commentaires;
+
     @ElementCollection(targetClass = RolesEnum.class, fetch = FetchType.EAGER)
     @Enumerated(EnumType.STRING)
     private List<RolesEnum> roles;

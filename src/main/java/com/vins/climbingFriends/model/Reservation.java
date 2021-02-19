@@ -27,4 +27,10 @@ public class Reservation implements Serializable {
     @Enumerated(EnumType.STRING)
     StatusEnum status;
 
+    @ManyToOne
+    Grimpeur grimpeur;
+
+    @ManyToOne
+    Topo topo;
+
 }
