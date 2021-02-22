@@ -1,14 +1,8 @@
 package com.vins.climbingFriends.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
 
@@ -17,10 +11,11 @@ import java.util.Collection;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class SiteEscalade implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String nomDuSite;

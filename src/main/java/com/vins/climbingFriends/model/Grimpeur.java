@@ -18,6 +18,7 @@ import java.util.stream.Collectors;
 @Setter
 @RequiredArgsConstructor
 @Data
+@ToString
 public class Grimpeur implements UserDetails {
 
     @Id
@@ -85,14 +86,4 @@ public class Grimpeur implements UserDetails {
         return true;
     }
 
-    @Override
-    public String toString() {
-        return "Grimpeur{" +
-                "id=" + id +
-                ", pseudo='" + pseudo + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", roles=" + roles +
-                '}';
-    }
 }

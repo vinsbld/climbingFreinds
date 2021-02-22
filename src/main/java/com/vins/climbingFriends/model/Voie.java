@@ -1,11 +1,9 @@
 package com.vins.climbingFriends.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 import java.util.Collection;
 
@@ -14,13 +12,15 @@ import java.util.Collection;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class Voie implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private int cotation;
+    @Pattern(regexp = "[0-6][ABC]")
+    private String cotation;
 
     @ManyToOne
     Secteur secteur;
