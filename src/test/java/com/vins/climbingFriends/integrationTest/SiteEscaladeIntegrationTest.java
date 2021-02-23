@@ -29,4 +29,9 @@ public class SiteEscaladeIntegrationTest {
         assertThat(foundSite).isNotNull();
         assertThat(siteEscalade.getId()).isEqualTo(foundSite.get().getId());
     }
+
+    @Test
+    public void givenSiteEscaladeRepository_whenFindSiteEscalade_thenReturn_himAndSectors(){
+
+    }
 }

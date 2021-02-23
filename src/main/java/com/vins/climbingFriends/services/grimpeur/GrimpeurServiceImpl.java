@@ -1,4 +1,4 @@
-package com.vins.climbingFriends.services;
+package com.vins.climbingFriends.services.grimpeur;
 
 import com.vins.climbingFriends.model.Grimpeur;
 import com.vins.climbingFriends.repository.IGrimpeurRepository;

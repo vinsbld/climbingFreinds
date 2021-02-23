@@ -3,8 +3,7 @@ package com.vins.climbingFriends.integrationTest;
 import com.vins.climbingFriends.model.Grimpeur;
 import com.vins.climbingFriends.repository.IGrimpeurRepository;
 
-import com.vins.climbingFriends.services.GrimpeurServiceImpl;
-import org.checkerframework.checker.units.qual.A;
+import com.vins.climbingFriends.services.grimpeur.GrimpeurServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
