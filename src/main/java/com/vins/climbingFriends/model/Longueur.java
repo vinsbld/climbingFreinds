@@ -1,6 +1,8 @@
 package com.vins.climbingFriends.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -22,6 +24,7 @@ public class Longueur implements Serializable {
 
     private int hauteur;
 
+    @JsonManagedReference
     @ManyToOne
     Voie voie;
 

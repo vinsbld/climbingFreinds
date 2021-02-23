@@ -1,5 +1,7 @@
 package com.vins.climbingFriends.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -36,13 +38,16 @@ public class Grimpeur implements UserDetails {
     @Size(min = 4)
     String password;
 
-    @OneToMany
+    @JsonBackReference
+    @OneToMany(mappedBy = "grimpeur", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     Collection<SiteEscalade> siteEscalades;
 
-    @OneToMany
+    @JsonBackReference
+    @OneToMany(mappedBy = "grimpeur", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     Collection<Topo>topos;
 
-    @OneToMany
+    @JsonBackReference
+    @OneToMany(mappedBy = "grimpeur", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     List<Commentaire>commentaires;
 
     @ElementCollection(targetClass = RolesEnum.class, fetch = FetchType.EAGER)

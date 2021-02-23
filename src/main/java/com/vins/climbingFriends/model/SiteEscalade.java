@@ -1,5 +1,7 @@
 package com.vins.climbingFriends.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -22,10 +24,17 @@ public class SiteEscalade implements Serializable {
 
     boolean officiel;
 
-    @OneToMany
+
+    @JsonManagedReference
+    @ManyToOne
+    Grimpeur grimpeur;
+
+    @JsonBackReference
+    @OneToMany(mappedBy ="siteEscalade", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     Collection<Secteur> secteurs;
 
-    @OneToMany
+    @JsonBackReference
+    @OneToMany(mappedBy = "siteEscalade", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     Collection<Commentaire> commentaires;
 
 }

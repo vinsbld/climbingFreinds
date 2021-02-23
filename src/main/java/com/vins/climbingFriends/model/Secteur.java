@@ -1,6 +1,8 @@
 package com.vins.climbingFriends.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -25,10 +27,13 @@ public class Secteur implements Serializable {
 
     private String acces;
 
+
+    @JsonManagedReference
     @ManyToOne
     SiteEscalade siteEscalade;
 
-    @OneToMany
+    @JsonBackReference
+    @OneToMany(mappedBy = "secteur", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     Collection<Voie> voies;
 
 

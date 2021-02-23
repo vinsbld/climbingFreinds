@@ -5,7 +5,7 @@ import com.vins.climbingFriends.repository.IGrimpeurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+
 
 @Service
 public class GrimpeurServiceImpl implements IGrimpeurService{
@@ -13,18 +13,14 @@ public class GrimpeurServiceImpl implements IGrimpeurService{
     @Autowired
     IGrimpeurRepository grimpeurRepository;
 
-    @Override
-    public Grimpeur save(Grimpeur grimpeur) {
-        return grimpeurRepository.save(grimpeur);
-    }
 
+    /**
+     * permet de trouver un utilisateur par son pseudo
+     * @param pseudo pseudo de l'utilisateur
+     * @return l'utilisateur
+     */
     @Override
-    public Optional<Grimpeur> findById(Long id) {
-        return grimpeurRepository.findById(id);
-    }
-
-    @Override
-    public void deleteById(Long id) {
-        grimpeurRepository.deleteById(id);
+    public Grimpeur findByPseudo(String pseudo) {
+        return grimpeurRepository.findByPseudo(pseudo);
     }
 }

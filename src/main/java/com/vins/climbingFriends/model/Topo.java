@@ -1,5 +1,7 @@
 package com.vins.climbingFriends.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -29,10 +31,12 @@ public class Topo implements Serializable {
 
     private Boolean disponible;
 
+    @JsonManagedReference
     @ManyToOne
     Grimpeur grimpeur;
 
-    @OneToMany
+    @JsonBackReference
+    @OneToMany(mappedBy = "topo", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     Collection<Reservation> reservations;
 
 }

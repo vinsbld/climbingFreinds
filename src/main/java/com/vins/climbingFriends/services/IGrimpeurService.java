@@ -1,14 +1,11 @@
 package com.vins.climbingFriends.services;
 
 import com.vins.climbingFriends.model.Grimpeur;
+import org.springframework.data.repository.query.Param;
 
-import java.util.Optional;
 
 public interface IGrimpeurService {
 
-    Grimpeur save(Grimpeur grimpeur);
+    Grimpeur findByPseudo(@Param("x")String pseudo);
 
-    Optional<Grimpeur> findById(Long id);
-
-    void deleteById(Long id);
 }

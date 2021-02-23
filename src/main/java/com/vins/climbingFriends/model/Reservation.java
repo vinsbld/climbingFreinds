@@ -1,5 +1,7 @@
 package com.vins.climbingFriends.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -25,9 +27,11 @@ public class Reservation implements Serializable {
     @Enumerated(EnumType.STRING)
     StatusEnum status;
 
+    @JsonManagedReference
     @ManyToOne
     Grimpeur grimpeur;
 
+    @JsonManagedReference
     @ManyToOne
     Topo topo;
 

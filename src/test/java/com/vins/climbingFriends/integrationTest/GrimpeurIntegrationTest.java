@@ -28,9 +28,9 @@ public class GrimpeurIntegrationTest {
     private IGrimpeurRepository grimpeurRepository;
 
     @Test
-    public void givenGrimpeurService_whenSaveRetreiveGrimpeur_thenOk(){
-        Grimpeur grimpeur = grimpeurService.save(new Grimpeur());
-        Optional<Grimpeur> foundGrimpeur = grimpeurService.findById(grimpeur.getId());
+    public void givenGrimpeurRepository_whenSaveRetreiveGrimpeur_thenOk(){
+        Grimpeur grimpeur = grimpeurRepository.save(new Grimpeur());
+        Optional<Grimpeur> foundGrimpeur = grimpeurRepository.findById(grimpeur.getId());
 
         assertThat(foundGrimpeur).isNotNull();
         assertThat(grimpeur.getId()).isEqualTo(foundGrimpeur.get().getId());
@@ -38,11 +38,25 @@ public class GrimpeurIntegrationTest {
     }
 
     @Test
-    public void givenGrimpeurService_whenDeleteGrimpeur_thenOk(){
-        Grimpeur grimpeur = grimpeurService.save(new Grimpeur());
+    public void givenGrimpeurRepository_whenDeleteGrimpeur_thenOk(){
+        Grimpeur grimpeur = grimpeurRepository.save(new Grimpeur());
         assertThat(grimpeurRepository.count()).isEqualTo(1);
 
-        grimpeurService.deleteById(grimpeur.getId());
+        grimpeurRepository.deleteById(grimpeur.getId());
         assertThat(grimpeurRepository.count()).isEqualTo(0);
+    }
+
+    @Test
+    public void givenGrimpeurService_whenFindByPseudo_thenReturnGrimpeur(){
+        Grimpeur grimpeur = new Grimpeur();
+        grimpeur.setPseudo("martin");
+        grimpeur.setEmail("martin@gmail.com");
+        grimpeurRepository.save(grimpeur);
+        assertThat(grimpeur.getPseudo()).isEqualTo("martin");
+
+        Grimpeur foundByPseudo = grimpeurService.findByPseudo("martin");
+        assertThat(foundByPseudo.getEmail()).isEqualTo("martin@gmail.com");
+        grimpeurRepository.delete(grimpeur);
+
     }
 }
